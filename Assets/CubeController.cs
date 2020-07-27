@@ -32,13 +32,11 @@ public class CubeController : MonoBehaviour
 			Destroy(gameObject);
 		}		
 	}
-	void OnCollisionEnter2D(Collision2D collision)
-	{	
-		
-		//Unityちゃん以外のオブジェクトに当たった時に効果音を鳴らしたい
-		if(gameObject.tag == "CubeTag"|| gameObject.tag == "GroundTag")
+	void OnCollisionEnter2D(Collision2D other)
+	{		
+		//Unityちゃん以外のオブジェクトに当たった時に効果音を鳴らす
+		if(other.gameObject.tag == "CubeTag"|| other.gameObject.tag == "GroundTag")
 		{	
-	
 			audiosource.Play();	
 		}
 		
